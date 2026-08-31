@@ -1,0 +1,32 @@
+---
+description: Java Spring Boot coding standards for enterprise-grade backend
+globs: ["**/*.java", "**/src/main/java/**/*.java"]
+alwaysApply: true
+---
+
+# Java Enterprise Standards
+
+## Code Quality
+- All public methods MUST have Javadoc with @param, @return, @throws
+- Use @Transactional for all service methods that modify data
+- Validate all inputs using @Valid in controllers
+- Use Lombok (@Data, @Builder) for DTOs to reduce boilerplate
+- Implement custom exception hierarchy extending RuntimeException
+
+## Architecture
+- Follow layered architecture: Controller → Service → Repository
+- Use DTOs for all API responses (never expose entities directly)
+- Implement caching with @Cacheable for expensive operations
+- Use Spring Profiles (dev, test, prod) for environment-specific config
+
+## Security
+- All endpoints require authentication unless explicitly allowed
+- Use Spring Security with JWT
+- Validate user permissions with @PreAuthorize
+- Never log sensitive data (passwords, tokens, PII)
+
+## Testing
+- All service methods must have unit tests (JUnit 5 + Mockito)
+- Controller tests using MockMvc
+- Integration tests for critical flows
+- Target 80% code coverage minimum

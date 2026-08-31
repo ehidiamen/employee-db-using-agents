@@ -1,0 +1,38 @@
+---
+description: React + TypeScript frontend standards
+globs: ["**/*.tsx", "**/*.jsx", "**/*.ts"]
+alwaysApply: true
+---
+
+# React Enterprise Standards
+
+## Component Design
+- Prefer functional components with hooks (avoid class components)
+- Use 'use client' directive only when absolutely necessary
+- Implement error boundaries for component failures
+- Use React.memo() for expensive components
+- Extract complex logic into custom hooks
+
+## State Management
+- Use React Query for server state (caching, refetching)
+- Use Zustand or Redux Toolkit for global client state
+- Keep components as stateless as possible
+- Implement optimistic updates for better UX
+
+## Performance
+- Lazy load routes using React.lazy()
+- Use virtualization for long lists (@tanstack/react-virtual)
+- Implement debouncing for search inputs
+- Bundle analyze and optimize chunks
+
+## TypeScript
+- Use strict mode and explicit types
+- Export interfaces/types from shared file
+- Use discriminated unions for state variations
+- No 'any' - use 'unknown' and type guards
+
+## Testing
+- Test components with React Testing Library
+- Test custom hooks with renderHook
+- Integration tests for critical user flows
+- Use MSW (Mock Service Worker) for API mocking

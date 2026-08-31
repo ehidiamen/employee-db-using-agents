@@ -1,0 +1,32 @@
+---
+description: Common Java patterns to enforce
+globs: ["**/*.java"]
+alwaysApply: true
+---
+
+# Java Best Practices (From 15 Years Experience)
+
+## Error Handling
+Always use specific exceptions:
+- ❌ `throw new RuntimeException("User not found")`
+- ✅ `throw new UserNotFoundException(userId)`
+
+## Logging
+Log at appropriate levels:
+- DEBUG: Development details, method entry/exit
+- INFO: Major operations (user creation, order placed)
+- WARN: Recoverable issues (retryable failures)
+- ERROR: Unrecoverable issues requiring human intervention
+
+## Null Safety
+Use Optional for nullable values:
+```java
+// ❌
+public String getEmail() {
+    return email;
+}
+
+// ✅
+public Optional<String> getEmail() {
+    return Optional.ofNullable(email);
+}

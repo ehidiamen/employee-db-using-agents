@@ -1,0 +1,31 @@
+---
+description: Security patterns and validation rules
+globs: ["**/*.java", "**/*.ts", "**/*.tsx"]
+alwaysApply: true
+---
+
+# Security & Validation Standards
+
+## General Principles
+- Validate all inputs on both client and server
+- Implement rate limiting (100 requests/minute per user)
+- Use HTTPS in production
+- Implement proper CORS configuration
+
+## Authentication & Authorization
+- JWT tokens with short expiry (15 minutes)
+- Refresh token rotation
+- Role-based access control (RBAC)
+- Audit all authentication events
+
+## Data Validation
+- Validate email format, phone numbers, IDs
+- Sanitize all user inputs to prevent XSS
+- Use parameterized queries to prevent SQL injection
+- Validate file uploads (type, size, content)
+
+## Logging & Monitoring
+- Structured logging (JSON format)
+- Security event logging (logins, password changes)
+- Performance metrics for API endpoints
+- Alert on suspicious patterns (multiple failures)
